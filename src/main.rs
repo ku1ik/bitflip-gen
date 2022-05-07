@@ -14,7 +14,7 @@ fn flips(input: &str) -> Vec<String> {
                 let mut s = String::new();
                 s.push_str(&input[0..i]);
                 s.push(c2);
-                s.push_str(&input[i+1..]);
+                s.push_str(&input[i + 1..]);
                 outputs.push(s);
             }
         }
