@@ -5,15 +5,13 @@ fn flips(input: &str) -> Vec<String> {
     let mut outputs = vec![];
 
     for (i, c) in input.char_indices() {
-        for m in masks {
-            let b = c as u8;
-            let b2 = b ^ m;
-            let c2 = b2 as char;
+        for mask in masks {
+            let c = ((c as u8) ^ mask) as char;
 
-            if c2.is_ascii() {
+            if c.is_ascii() {
                 let mut s = String::new();
                 s.push_str(&input[0..i]);
-                s.push(c2);
+                s.push(c);
                 s.push_str(&input[i + 1..]);
                 outputs.push(s);
             }
