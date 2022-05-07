@@ -23,8 +23,12 @@ fn flips(input: &str) -> Vec<String> {
     outputs
 }
 
-fn main() {
-    for d in flips(&env::args().nth(1).unwrap()) {
+fn main() -> Result<(), String> {
+    let input = &env::args().nth(1).ok_or("missing input arg")?;
+
+    for d in flips(input) {
         println!("{}", d);
     }
+
+    Ok(())
 }
